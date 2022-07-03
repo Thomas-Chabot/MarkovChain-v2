@@ -61,4 +61,37 @@ describe("Chain tests", function() {
             expect(chain.chain["b"].values).to.be.empty;
         });
     });
+    describe("Generation", function() {
+        it("Can generate from an untrained chain", function() {
+            var chain = new Chain();
+            var result = chain.Generate(12);
+
+            expect(result).to.equal("");
+        });
+        it("Can generate from one character", function() {
+            var chain = new Chain();
+            chain.Train("a");
+
+            var result = chain.Generate(12);
+            expect(result).to.equal("a");
+        });
+        it("Can generate from a sequence", function() {
+            var chain = new Chain();
+            chain.Train("Hello World");
+
+            var result = chain.Generate(12);
+            expect(result).to.equal("Hello World");
+        });
+        it("Can generate from multiple sequences", function() {
+            var chain = new Chain();
+            chain.Train("Hello World 1");
+            chain.Train("Hello World 2");
+            
+            var result = chain.Generate(50);
+
+            // Because the two training sequences are equal outside of the end numbers, 
+            // the result here should be identical to one of them.
+            expect(["Hello World 1", "Hello World 2"]).to.contain(result);
+        });
+    })
 })

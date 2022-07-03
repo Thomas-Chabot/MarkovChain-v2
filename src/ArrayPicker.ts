@@ -4,7 +4,8 @@ export interface IArrayPicker {
         [key : string] : number
     },
     Add: (value : string)=>void,
-    Pick: ()=>string
+    Pick: ()=>string,
+    Any: ()=>boolean
 }
 
 export class ArrayPicker implements IArrayPicker {
@@ -56,5 +57,9 @@ export class ArrayPicker implements IArrayPicker {
 
         // If we go through the entire array, return the last value
         return values[values.length];
+    }
+
+    Any() : boolean {
+        return this.total !== 0;
     }
 }

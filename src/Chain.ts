@@ -23,20 +23,22 @@ export default class Chain implements IChain {
     }
 
     public Train(dataString : string) {
+        if (dataString === "") {
+            return;
+        }
+
         var startingChar = dataString.substring(0, 1);
         this.entryPoints.Add(startingChar);
     
         //console.log(startingChar);
 
-        for (var i = 1; i < dataString.length; i++) {
+        for (var i = 0; i < dataString.length; i++) {
             var start = Math.max(0, i - chainLength);
-            var wordChain = dataString.substring(start, i);
+            var wordChain = dataString.substring(start, i+1);
     
             if (!this.chain[wordChain]) {
                 this.chain[wordChain] = new ArrayPicker();
             }
-    
-            var nextCharacter = dataString[i]
     
             /*console.log(`
                 START: ${start}
@@ -46,7 +48,9 @@ export default class Chain implements IChain {
                 ${dataString[i + 1]}
             `);*/
 
-            this.chain[wordChain].Add(nextCharacter);
+            if (dataString.length - 1 > i) {
+                this.chain[wordChain].Add(dataString[i + 1]);
+            }
         }
     }
 
@@ -64,7 +68,14 @@ export default class Chain implements IChain {
                 break;
             }
 
-            str += this.chain[wordChain].Pick();
+            var next = this.chain[wordChain].Pick();
+            
+            // Edge case: If we have no next choice, exit
+            if (next === undefined) {
+                break;
+            }
+
+            str += next;
         }
         return str;
     }

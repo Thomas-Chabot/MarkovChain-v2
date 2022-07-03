@@ -93,8 +93,5 @@ describe("Chain tests", function() {
             // the result here should be identical to one of them.
             expect(["Hello World 1", "Hello World 2"]).to.contain(result);
         });
-        it("Will fail", function(){
-            expect(1).to.equal(2);
-        })
     })
 })

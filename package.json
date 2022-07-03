@@ -1,6 +1,6 @@
 {
-  "name": "MarkovChain-v2",
-  "version": "1.0.0",
+  "name": "better-markov-chain-nlg",
+  "version": "1.0.1",
   "description": "A random text generator built off of a Markov Chain algorithm.",
   "main": "index.js",
   "directories": {

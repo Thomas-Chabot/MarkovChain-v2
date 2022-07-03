@@ -1,14 +1,11 @@
-import IChainInterface from '../types/IChain';
 import {IArrayPicker, ArrayPicker} from './ArrayPicker';
 
 var chainLength = 4;
 
 // This IChain is a private data structure for the internal chain.
-interface IChain extends IChainInterface {
-    entryPoints: IArrayPicker,
-    chain: {
-        [key : string]: IArrayPicker
-    }
+export interface IChain {
+    Train(dataString : string) : void;
+    Generate(length : number) : string;
 }
 
 export default class Chain implements IChain {

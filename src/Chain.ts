@@ -53,20 +53,14 @@ export default class Chain implements IChain {
             var start = Math.max(0, i - chainLength);
             var wordChain = str.substring(start, i);
 
-            //console.log(wordChain);
-            //console.log(this.chain[wordChain]);
-            
             if (!this.chain[wordChain]){
-                //console.log("OOF");
                 break;
             }
 
             var next = this.chain[wordChain].Pick();
             
             // Edge case: If we have no next choice, exit
-            //console.log(next);
             if (next === undefined) {
-                //console.log("Exiting");
                 break;
             }
 

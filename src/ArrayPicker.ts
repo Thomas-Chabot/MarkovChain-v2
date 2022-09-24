@@ -34,11 +34,6 @@ export class ArrayPicker implements IArrayPicker {
 
         // Generate a random number between min and max
         var number = Math.floor(Math.random() * (max - min)) + min;
-        /*console.log(`
-            MIN: ${min}
-            MAX: ${max}
-            NUMBER: ${number}
-        `)*/
 
         // Walk through the array until we come up to our chosen value
         var values = Object.keys(this.values);

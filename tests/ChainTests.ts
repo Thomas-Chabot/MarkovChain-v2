@@ -49,8 +49,7 @@ describe("Chain tests", function() {
         });
         it("Can train on multiple strings", function() {
             var chain = new Chain();
-            chain.Train("a");
-            chain.Train("b");
+            chain.TrainMultiple(["a", "b"]);
 
             expect(chain.entryPoints.values).to.have.all.keys(["a", "b"]);
             expect(chain.entryPoints.total).to.equal(2);

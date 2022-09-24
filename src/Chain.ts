@@ -1,11 +1,13 @@
 import {IArrayPicker, ArrayPicker} from './ArrayPicker';
 
 var chainLength = 4;
+const DEFAULT_LENGTH = 250;
 
 // This IChain is a private data structure for the internal chain.
 export interface IChain {
     Train(dataString : string) : void;
-    Generate(length : number) : string;
+    TrainMultiple(dataStrings : string[]) : void;
+    Generate(length? : number) : string;
 }
 
 export default class Chain implements IChain {
@@ -41,7 +43,17 @@ export default class Chain implements IChain {
         }
     }
 
-    public Generate(length : number) : string {
+    public TrainMultiple(dataStrings: string[]): void {
+        for (var string of dataStrings){
+            this.Train(string);
+        }
+    }
+
+    public Generate(length? : number) : string {
+        if (length === undefined) {
+            length = DEFAULT_LENGTH;
+        }
+
         // First check if we have any entry points, and if not, return an empty string
         if (!this.entryPoints.Any()){
             return "";

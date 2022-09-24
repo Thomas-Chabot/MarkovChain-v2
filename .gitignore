@@ -103,3 +103,6 @@ build
 
 # TernJS port file
 .tern-port
+
+# Keep the package.json in the dist folder
+!dist/package.json

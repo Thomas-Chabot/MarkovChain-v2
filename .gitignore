@@ -80,7 +80,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+dist/*
 build
 
 # Gatsby files
@@ -103,3 +103,6 @@ build
 
 # TernJS port file
 .tern-port
+
+# Keep the package.json in the dist folder
+!dist/package.json

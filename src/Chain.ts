@@ -26,8 +26,6 @@ export default class Chain implements IChain {
 
         var startingChar = dataString.substring(0, 1);
         this.entryPoints.Add(startingChar);
-    
-        //console.log(startingChar);
 
         for (var i = 0; i < dataString.length; i++) {
             var start = Math.max(0, i - chainLength + 1);
@@ -37,14 +35,6 @@ export default class Chain implements IChain {
                 this.chain[wordChain] = new ArrayPicker();
             }
     
-            /*console.log(`
-                START: ${start}
-                WORD CHAIN: ${wordChain}
-                NEXT CHARACTER: ${dataString[i + 1]}
-                i: ${i}
-                ${dataString[i + 1]}
-            `);*/
-
             if (dataString.length - 1 > i) {
                 this.chain[wordChain].Add(dataString[i + 1]);
             }

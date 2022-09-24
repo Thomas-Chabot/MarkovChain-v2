@@ -10,8 +10,9 @@
   "scripts": {
     "start": "npx ts-node src",
     "build": "npx tsc",
-    "prepublish": "npm run build",
-    "test": "npx mocha -r ts-node/register 'tests/**/*.ts'"
+    "test": "npx mocha -r ts-node/register 'tests/**/*.ts'",
+    "prebuildpackage": "npm run build",
+    "buildpackage": "cd dist && npm pack"
   },
   "repository": {
     "type": "git",

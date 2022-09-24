@@ -1,4 +1,5 @@
 export default interface IChain {
     Train(dataString : string) : void
-    Generate(length : number) : string
+    TrainMultiple(dataStrings : string[]) : void
+    Generate(length? : number) : string
 }
